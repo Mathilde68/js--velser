@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gæt et tal</title>
+</head>
+<body>
+
+    <h2>Prøv at gætte tallet mellem 1 og 20!</h2>
+    <p>Indtast et gæt og tryk på knappen!</p>
+    <input type="text" id="gæt">
+    <button>Gæt!</button>
+    <button id="nytSpil">Nyt spil!</button>
+    <script>
+           let randomTal = Math.round(Math.random()*20);
+    document.querySelector("button").addEventListener("click",gætTal);
+    document.querySelector("#nytSpil").addEventListener("click",nytSpil);
+
+    function gætTal(){
+        const gæt = document.querySelector("#gæt").value;
+        console.log("Dit gæt er",gæt);
+
+        if (gæt == randomTal){
+            console.log("Woohoo det var rigtigt!");
+        } else if(gæt < randomTal){
+            console.log("det var for LAVT:( gæt igen!");
+        } else {
+            console.log("det var for HØJT! :( gæt igen!");
+        }
+    }
+
+    function nytSpil(){
+        randomTal = Math.round(Math.random()*20);
+    }
+    </script>
+</body>
+</html>
