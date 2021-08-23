@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>co2 beregning</title>
+</head>
+
+<body>
+    <p>Indtast venligst længden af din flyrejse</p>
+    <input type="text" id="timer">
+    <button>Vis co2 udledt</button>
+    <script>
+        let timer;
+        let co2Udledt;
+
+        document.querySelector("button").addEventListener("click", buttonClick);
+
+        function buttonClick() {
+            timer = document.querySelector("#timer").value;
+            co2Udledt = timer * 109;
+
+
+
+            if (isNaN(timer)) {
+                console.log("Det idntaste antal timer er ikke et tal. Indtast venligst et tal og prøv igen!")
+            } else if (timer <= 0) {
+                console.log("Du har ikke indtastet en gyldig antal timer, indtast venligst et tal over 0 og prøv igen")
+            } else {
+
+                console.log(`co2 udledt i kg ved ${timer} timers flyrejse: ${co2Udledt}`);
+
+                if (co2Udledt < 150) {
+                    console.log("WOW, that sure is mighty fine!");
+                } else if (co2Udledt > 150 && co2Udledt < 400) {
+                    console.log("Thats allright, but you can do better");
+                } else {
+                    console.log("WTF dude? we only have 1 planet!");
+                }
+
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>
