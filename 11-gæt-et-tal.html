@@ -14,25 +14,31 @@
     <button>Gæt!</button>
     <button id="nytSpil">Nyt spil!</button>
     <script>
+        let antal=1;
            let randomTal = Math.round(Math.random()*20);
     document.querySelector("button").addEventListener("click",gætTal);
     document.querySelector("#nytSpil").addEventListener("click",nytSpil);
-
+    
     function gætTal(){
+       
         const gæt = document.querySelector("#gæt").value;
         console.log("Dit gæt er",gæt);
 
         if (gæt == randomTal){
-            console.log("Woohoo det var rigtigt!");
+            console.log(`Woohoo det var rigtigt! Du gættede ${antal} gange`);
         } else if(gæt < randomTal){
             console.log("det var for LAVT:( gæt igen!");
+            antal++;
         } else {
             console.log("det var for HØJT! :( gæt igen!");
+            antal++;
         }
     }
 
     function nytSpil(){
+        
         randomTal = Math.round(Math.random()*20);
+        console.log("Du har startet et nyt spil! :D ")
     }
     </script>
 </body>
